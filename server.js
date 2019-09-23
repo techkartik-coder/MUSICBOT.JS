@@ -1,22 +1,21 @@
-// server.js
-// where your node app starts
+const { Client, Util } = require('discord.js');
+const {prefix} = require("./config.json");
+const YouTube = require('simple-youtube-api');
+const ytdl = require('ytdl-core');
+const opus = require("node-opus");
+const gyp = require("node-gyp");
+const Discord = require("discord.js");
 
-// init project
-const express = require('express');
-const app = express();
+const client = new Client({ disableEveryone: true });
+const Youtube = new Youtube(process.env.yt_api);
 
-// we've started you off with Express, 
-// but feel free to use whatever libs or frameworks you'd like through `package.json`.
+const queue = new Map
 
-// http://expressjs.com/en/starter/static-files.html
-app.use(express.static('public'));
+client.on('warn', console.warn);
+client.on('error', console.error);
 
-// http://expressjs.com/en/starter/basic-routing.html
-app.get('/', function(request, response) {
-  response.sendFile(__dirname + '/views/index.html');
+client.on('ready', () => {
+  console.log(`${client.user.tag} Omg ready`);
 });
 
-// listen for requests :)
-const listener = app.listen(process.env.PORT, function() {
-  console.log('Your app is listening on port ' + listener.address().port);
-});
+client.login(process.env.TOKEN);

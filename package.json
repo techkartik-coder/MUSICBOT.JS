@@ -7,21 +7,23 @@
   "description": "A simple Node app built on Express, instantly up and running.",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start":
+
   },
   "dependencies": {
-    "express": "^4.16.4"
-  },
-  "engines": {
-    "node": "8.x"
-  },
-  "repository": {
-    "url": "https://glitch.com/edit/#!/hello-express"
-  },
-  "license": "MIT",
-  "keywords": [
-    "node",
-    "glitch",
-    "express"
-  ]
+    "discord.js": "11.3.0",
+    "request": "2.81.0",
+    "foreach-timeout": "2.0.2",
+    "map": "^1.0.1",
+    "ffmpeg": "^0.0.4",
+    "express": "^4.16.3",
+    "https": "^1.0.0",
+    "ytdl-core": "^0.29.0",
+    "opusscript": "^0.0.6",
+    "superagent": "^4.0.0",
+    "simple-youtube-api": "^5.1.1",
+    "moment": "^2.24.0",
+    "node-gyp": "^3.8.0",
+    "node-opus": "^0.3.1"
+  }
 }
