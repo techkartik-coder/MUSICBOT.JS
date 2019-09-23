@@ -1,5 +1,5 @@
 {
-  "name": "shawn hamby",
+  "name": "jetrai",
   "version": "0.1.0",
   "description": "A simple discord bot",
   "main": "MusicBot.js",
@@ -11,7 +11,7 @@
     "bot",
     "discordbot"
   ],
-  "author": "SHawn hamby",
+  "author": "Its me",
   "license": "MIT",
   "dependencies": {
     "discord.js": "^11.5.1",
