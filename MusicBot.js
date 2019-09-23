@@ -124,11 +124,11 @@ Please provide a value to select one of the search results ranging from 1-10.
 		if (!serverQueue) return msg.channel.send('There is nothing playing.');
 		return msg.channel.send(`
 __**Song queue:**__
-
+__
 ${serverQueue.songs.map(song => `**-** ${song.title}`).join('\n')}
-
+_
 **Now playing:** ${serverQueue.songs[0].title}
-		`);
+`);
 	} else if (command === 'pause') {
 		if (serverQueue && serverQueue.playing) {
 			serverQueue.playing = false;
