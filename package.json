@@ -1,29 +1,32 @@
 {
-  "//1": "describes your app and its dependencies",
-  "//2": "https://docs.npmjs.com/files/package.json",
-  "//3": "updating this file will download and update your packages",
-  "name": "hello-express",
-  "version": "0.0.1",
-  "description": "A simple Node app built on Express, instantly up and running.",
-  "main": "server.js",
+  "name": "shawn hamby",
+  "version": "0.1.0",
+  "description": "A simple discord bot",
+  "main": "MusicBot.js",
   "scripts": {
-    "start":
-
+    "start": "node MusicBot.js"
   },
+  "keywords": [
+    "discord",
+    "bot",
+    "discordbot"
+  ],
+  "author": "SHawn hamby",
+  "license": "MIT",
   "dependencies": {
-    "discord.js": "11.3.0",
-    "request": "2.81.0",
-    "foreach-timeout": "2.0.2",
-    "map": "^1.0.1",
-    "ffmpeg": "^0.0.4",
-    "express": "^4.16.3",
-    "https": "^1.0.0",
-    "ytdl-core": "^0.29.0",
-    "opusscript": "^0.0.6",
-    "superagent": "^4.0.0",
-    "simple-youtube-api": "^5.1.1",
-    "moment": "^2.24.0",
-    "node-gyp": "^3.8.0",
-    "node-opus": "^0.3.1"
+    "discord.js": "^11.5.1",
+    "opusscript": "^0.0.7",
+    "simple-youtube-api": "^5.2.1",
+    "ytdl-core": "^0.29.7"
+  },
+  "devDependencies": {
+    "eslint": "^4.0.0",
+    "eslint-config-aqua": "^1.0.0"
+  },
+  "eslintConfig": {
+    "extends": "aqua",
+    "rules": {
+      "no-console": 0
+    }
   }
 }
