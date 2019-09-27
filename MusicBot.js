@@ -16,8 +16,8 @@ client.on('message', message => {
 });
 
 client.on('message', message => {
-  if (message.content === '!!help') {
-    message.reply('**!!Play - !!skip - !!np - !!volume - !!stop - !!resume - !');
+  if (message.content === `!!help`) {
+    message.reply('**!!play - !!skip - !!np - !!volume - !!stop - !!resume - !!queue - !!pause**');
   }
 });
 
@@ -26,7 +26,7 @@ client.on('warn', console.warn);
 
 client.on('error', console.error);
 
-client.on('ready', () => console.log('Yo this ready!'));
+client.on('ready', () => console.log(`${client.user.tag} Is online :D | Music Cmd created by old town road#6630`));
 
 client.on('disconnect', () => console.log('I just disconnected, making sure you know, I will reconnect now...'));
 
