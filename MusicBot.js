@@ -17,7 +17,7 @@ client.on('message', message => {
 
 client.on('message', message => {
   if (message.content === '!!help') {
-    message.reply('play,skip,queue,stop,volume,pause');
+    message.reply('**!!Play - !!skip - !!np - !!volume - !!stop - !!resume - !');
   }
 });
 
