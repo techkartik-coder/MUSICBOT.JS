@@ -10,13 +10,13 @@ const youtube = new YouTube(GOOGLE_API_KEY);
 const queue = new Map(); 
 
 client.on('message', message => {
-  if (message.content === '!!ping') {
+  if (message.content === '&!ping') {
     message.reply('pong');
   }
 });
 
 client.on('message', message => {
-  if (message.content === `!!help`) {
+  if (message.content === `&!help`) {
     message.reply('**!!play - !!skip - !!np - !!volume - !!stop - !!resume - !!queue - !!pause**');
   }
 });
