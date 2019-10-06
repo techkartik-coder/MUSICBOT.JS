@@ -132,13 +132,7 @@ client.on('message', async msg => { // eslint-disable-line
 
 **Now playing:** ${serverQueue.songs[0].title}`)
                 .setColor("#ff2052")
-    return msg.channel.send(`
-Song queue
-
-${serverQueue.songs.map(song => `**-** ${song.title}`).join('\n')}
-
-**Now playing:** ${serverQueue.songs[0].title}
-		`);
+    return msg.channel.send(embed);
 	} else if (command === 'pause') {
         if (serverQueue && serverQueue.playing) {
             serverQueue.playing = false;
