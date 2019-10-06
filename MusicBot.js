@@ -103,7 +103,7 @@ client.on('message', async msg => { // eslint-disable-line
 		if (!serverQueue) return msg.channel.send('There is nothing playing that I could skip for you.');
 		serverQueue.connection.dispatcher.end('Skip command has been used!');
 		return undefined;
-	} else if (command === 'stop') {
+	} else if (command === 'stox') {
 		if (!msg.member.voiceChannel) return msg.channel.send('You are not in a voice channel!');
 		if (!serverQueue) return msg.channel.send('There is nothing playing that I could stop for you.');
 		serverQueue.songs = [];
@@ -128,7 +128,7 @@ ${serverQueue.songs.map(song => `**-** ${song.title}`).join('\n')}
 
 **Now playing:** ${serverQueue.songs[0].title}
 		`);
-	} else if (command === 'pause') {
+	} else if (command === 'paue') {
         if (serverQueue && serverQueue.playing) {
             serverQueue.playing = false;
             serverQueue.connection.dispatcher.pause();
@@ -139,7 +139,7 @@ ${serverQueue.songs.map(song => `**-** ${song.title}`).join('\n')}
             msg.channel.send(embed)
           
 		}
-	} else if (command === 'resume') {
+	} else if (command === 'resue') {
         if (serverQueue && !serverQueue.playing) {
             serverQueue.playing = true;
             serverQueue.connection.dispatcher.resume();
@@ -169,7 +169,7 @@ async function handleVideo(video, msg, voiceChannel, playlist = false) {
 			voiceChannel: voiceChannel,
 			connection: null,
 			songs: [],
-			volume: 3,
+			volume: 10,
 			playing: true
 		};
 		queue.set(msg.guild.id, queueConstruct);
@@ -212,8 +212,12 @@ function play(guild, song) {
 			play(guild, serverQueue.songs[0]);
 		})
 		.on('error', error => console.error(error));
-	dispatcher.setVolumeLogarithmic(serverQueue.volume / 5);
+	dispatcher.setVolumeLogarithmic(serverQueue.volume / 10);
 
-	serverQueue.textChannel.send(` 📶 Start playing: **${song.title}**`);
+	var embed = new Discord.RichEmbed()
+        .setTitle("Song Selection")
+        .setDescription(`🎵 \`Start playing:\` **${song.title}**`)
+        .setColor("#ff2052")
+    serverQueue.textChannel.send(embed);
 }
 client.login(TOKEN);
