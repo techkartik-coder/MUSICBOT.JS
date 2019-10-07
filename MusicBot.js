@@ -233,4 +233,6 @@ function play(guild, song) {
         .setColor("#ff2052")
     serverQueue.textChannel.send(embed);
 }
+
+
 client.login(TOKEN);
