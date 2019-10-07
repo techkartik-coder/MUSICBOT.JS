@@ -1,3 +1,4 @@
+const 
 const { Client, Util } = require('discord.js');
 const { TOKEN, PREFIX, GOOGLE_API_KEY } = require('./config');
 const YouTube = require('simple-youtube-api');
@@ -147,7 +148,31 @@ client.on('message', async msg => { // eslint-disable-line
                 .setColor("#ff2052")
             msg.channel.send(embed)
           
-		}
+        }
+  } else if
+    message.react('👍').then(() => message.react('👎'));
+  
+const filter = (reaction, user) => {
+    return ['👍', '👎'].includes(reaction.emoji.name) && user.id === message.author.id;
+};
+
+message.awaitReactions(filter, { max: 1, time: 60000, errors: ['time'] })
+    .then(collected => {
+        const reaction = collected.first();
+
+        if (reaction.emoji.name === '👍') {
+            message.reply('you reacted with a thumbs up.');
+        }
+        else {
+            message.reply('you reacted with a thumbs down.');
+        }
+    })
+    .catch(collected => {
+        console.log(`After a minute, only ${collected.size} out of 4 reacted.`);
+        message.reply('you didn\'t react with neither a thumbs up, nor a thumbs down.');
+}
+          
+           }
 	} else if (command === 'resume') {
         if (serverQueue && !serverQueue.playing) {
             serverQueue.playing = true;
