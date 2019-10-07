@@ -122,9 +122,9 @@ client.on('message', async msg => { // eslint-disable-line
 		serverQueue.connection.dispatcher.setVolumeLogarithmic(args[1] / 4);
 		return msg.channel.send(`I set the volume to: **${args[1]}**`);
 	} else if (command === 'np') {
-    var embed = Discord.RichEmbed()
+    var embed = new Discord.RichEmbed()
     .setTitle("Song Detail")
-    .setDescription(`🎶 Now playing: **${serverQueue.songs[0].title}**`)
+    .setDescription(`🎶 \`Now playing:\` **${serverQueue.songs[0].title}**`)
     .setColor("#ff2052")
 		if (!serverQueue) return msg.channel.send('There is nothing playing.');
 		return msg.channel.send(embed);
@@ -132,9 +132,9 @@ client.on('message', async msg => { // eslint-disable-line
 		if (!serverQueue) return msg.channel.send('There is nothing playing.');
 		var embed = new Discord.RichEmbed()
                 .setTitle("Song Queue")
-                .setDescription(`${serverQueue.songs.map(song => `**-** ${song.title}`).join('\n')}
+                .setDescription(`${serverQueue.songs.map(song => `**• ** ${song.title}`).join('\n')}
 
-**Now playing:** ${serverQueue.songs[0].title}`)
+🎵 \`Now playing:\` **${serverQueue.songs[0].title}**`)
                 .setColor("#ff2052")
     return msg.channel.send(embed);
 	} else if (command === 'pause') {
