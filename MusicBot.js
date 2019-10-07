@@ -201,7 +201,7 @@ async function handleVideo(video, msg, voiceChannel, playlist = false) {
     var embed = new Discord.RichEmbed()
                 .setTitle("Song Selection")
                 .setDescription(`✅ Playlist: **${playlist.title}** has been added to the queue!`)
-                .setColor("RANDOM")
+                .setColor("#ff2052")
 		 return msg.channel.send(embed);
 	}
 	return undefined;
