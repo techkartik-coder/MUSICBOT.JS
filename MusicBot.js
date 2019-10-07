@@ -103,6 +103,11 @@ client.on('message', async msg => { // eslint-disable-line
             return handleVideo(video, msg, voiceChannel);
         }
 	} else if (command === 'skip') {
+    case "profile"
+    var isAdmin = "undefined";
+    let profileMentionned = message.mentions.members.first();
+    if (!profileMentionned) return message.channel.send("some error message")
+    if (profileMentionned.hasPermission("MANAGE_MESSAGES"))
 		if (!msg.member.voiceChannel) return msg.channel.send('You are not in a voice channel!');
 		if (!serverQueue) return msg.channel.send('There is nothing playing that I could skip for you.');
 		serverQueue.connection.dispatcher.end('Skip command has been used!');
