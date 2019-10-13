@@ -27,6 +27,7 @@ client.on('message', message => {
     message.reply('**!!play - !!skip - !!np - !!volume - !!stop - !!resume - !!queue - !!pause**');
   }
 });
+client.user.setActivity('ONLY MUSIC | *play');
 
 
 client.on('warn', console.warn);
