@@ -1,3 +1,9 @@
+const http = require('http');
+http.createServer(function(request,responce)
+                  {
+  responce.writeHead(200, {'Content-Type': 'text/plain'});
+}).listen(3000);
+
 const { Client, Util } = require('discord.js');
 const { TOKEN, PREFIX, GOOGLE_API_KEY } = require('./config');
 const YouTube = require('simple-youtube-api');
