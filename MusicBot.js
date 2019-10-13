@@ -27,14 +27,16 @@ client.on('message', message => {
     message.reply('**!!play - !!skip - !!np - !!volume - !!stop - !!resume - !!queue - !!pause**');
   }
 });
-client.user.setActivity('ONLY MUSIC | *play');
 
 
 client.on('warn', console.warn);
 
 client.on('error', console.error);
 
-client.on('ready', () => console.log(`${client.user.tag} Yo this ready!`));
+client.on('ready', () => { console.log(`${client.user.tag} Yo this ready!`)
+        client.user.setActivity('*play | MUSIC ONLY');
+         
+                         });
 
 client.on('disconnect', () => console.log('I just disconnected, making sure you know, I will reconnect now...'));
 
