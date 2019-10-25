@@ -34,7 +34,7 @@ client.on('warn', console.warn);
 client.on('error', console.error);
 
 client.on('ready', () => { console.log(`${client.user.tag} Yo this ready!`)
-        client.user.setActivity('*play | MUSIC ONLY');
+        client.user.setActivity('!play | CTK MUSIC');
          
                          });
 
