@@ -39,12 +39,10 @@ client.on('error', console.error);
 
 
 client.on('ready', () => {
-    client.on('message', message => {
-      const serverQueue
       
 
   console.log(`${client.user.tag} Yo this ready!`)
-        client.user.setActivity(`${PREFIX}play | ${serverQueue.song[0].title}`);
+        client.user.setActivity(`${PREFIX}play | Music`);
     
 });
 
@@ -101,6 +99,7 @@ client.on('message', async msg => { // eslint-disable-line
                         .setFooter("Please provide a value to select one of the search results ranging from 1-10.")
 
                     msg.channel.send(embed);
+                  client.user.setActivity(`${serverQueue.songs[0].title}`)
                     // eslint-disable-next-line max-depth
                     try {
                         var response = await msg.channel.awaitMessages(msg2 => msg2.content > 0 && msg2.content < 11, {
@@ -151,7 +150,10 @@ client.on('message', async msg => { // eslint-disable-line
     .setColor("#ff2052")
 		if (!serverQueue) return msg.channel.send('There is nothing playing.');
 		return msg.channel.send(embed);
-	} else if (command === 'queue') {
+	} else if(command === 'act') {
+    client.user.setActivity(`${serverQueue.songs[0].title}`)
+
+} else if (command === 'queue') {
 		if (!serverQueue) return msg.channel.send('There is nothing playing.');
 		var embed = new Discord.RichEmbed()
                 .setTitle("Song Queue")
