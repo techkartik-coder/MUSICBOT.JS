@@ -17,14 +17,18 @@ const youtube = new YouTube(GOOGLE_API_KEY);
 const queue = new Map(); 
 
 client.on('message', message => {
-  if (message.content === PREFIX + 'ping') {
+  if (message.content === `${PREFIX}ping`) {
     message.reply('pong');
   }
 });
 
 client.on('message', message => {
-  if (message.content === `&!help`) {
-    message.reply('**!!play - !!skip - !!np - !!volume - !!stop - !!resume - !!queue - !!pause**');
+  if (message.content === `${PREFIX}help`) {
+    var embed = new Discord.RichEmbed()
+    .setTitle('MUSIC COMMANDS')
+    .setColor('RANDOM')
+    .setDescription(`${PREFIX}play, ${PREFIX}skip, ${PREFIX}np, ${PREFIX}volume, ${PREFIX}stop, ${PREFIX}resume, ${PREFIX}queue, ${PREFIX}pause`);
+    message.channel.send(embed);
   }
 });
 
@@ -34,7 +38,7 @@ client.on('warn', console.warn);
 client.on('error', console.error);
 
 client.on('ready', () => { console.log(`${client.user.tag} Yo this ready!`)
-        client.user.setActivity('!play | CTK MUSIC');
+        client.user.setActivity(`${PREFIX}play | MUSIC`);
          
                          });
 
