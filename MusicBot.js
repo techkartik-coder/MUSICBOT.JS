@@ -256,9 +256,12 @@ client.on('message', async message => {
     if (!message.member.voiceChannel) return message.channel.send('Join the voice channel first');
     if (!serverQueue) return message.channel.send('There is nothing playing');
     if (serverQueue.loop) {
+      serverQueue.songs.push(serverQueue.songs.shift());
       serverQueue.loop = false;
       return message.channel.send('unloopedEmbed');
     } else {
+     serverQueue.songs.shift
+      play(guild, serverQueue.songs[0])
       serverQueue.loop = true;
       return message.channel.send('loopedEmbed');
     }
