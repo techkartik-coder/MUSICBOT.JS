@@ -251,17 +251,16 @@ function play(guild, song) {
 }
 
 client.on('message', async message => {
-  if(message.content === `{PREFIX}loop`) {
-    if (message.settings.djonly && !message.member.roles.some(c => c.name.toLowerCase() === message.settings.djrole.toLowerCase())) return message.client.embed('notDJ', message);
-    const Serverqueue = this.client.playlists.get(message.guild.id);
-    if (!message.member.voiceChannel) return message.client.embed('noVoiceChannel', message);
-    if (!this.client.playlists.has(message.guild.id)) return this.client.embed('emptyQueue', message);
-    if (Serverqueue.loop) {
-      Serverqueue.loop = false;
-      return this.client.embed('unloopedEmbed', message);
+  if(message.content === 'c!loop') {
+    const serverQueue = queue.get(message.guild.id)
+    if (!message.member.voiceChannel) return message.channel.send('Join the voice channel first');
+    if (!serverQueue) return message.channel.send('There is nothing playing');
+    if (serverQueue.loop) {
+      serverQueue.loop = false;
+      return message.channel.send('unloopedEmbed');
     } else {
-      Serverqueue.loop = true;
-      return this.client.embed('loopedEmbed', message);
+      serverQueue.loop = true;
+      return message.channel.send('loopedEmbed');
     }
   }
 });
