@@ -149,8 +149,6 @@ client.on('message', async msg => { // eslint-disable-line
     .setColor("#ff2052")
 		if (!serverQueue) return msg.channel.send('There is nothing playing.');
 		return msg.channel.send(embed);
-	} else if(command === 'act') {
-    client.user.setActivity(`${serverQueue.songs[0].title}`)
 
 } else if (command === 'queue') {
 		if (!serverQueue) return msg.channel.send('There is nothing playing.');
@@ -246,7 +244,7 @@ function play(guild, song) {
 			else console.log(reason);
 			serverQueue.songs.shift();
 			play(guild, serverQueue.songs[0]);
-      client.user.setActivity(`{PREFIX}play | MUSIC`)
+      client.user.setActivity(`${PREFIX}play | MUSIC`)
 		})
 		.on('error', error => console.error(error));
 	dispatcher.setVolumeLogarithmic(serverQueue.volume / 10);
@@ -258,21 +256,6 @@ function play(guild, song) {
   client.user.setActivity(`${serverQueue.songs[0].title}`)
     serverQueue.textChannel.send(embed);
 }
-
-client.on('message', async message => {
-  if(message.content === 'c!loop') {
-    const serverQueue = queue.get(message.guild.id)
-    if (!message.member.voiceChannel) return message.channel.send('Join the voice channel first');
-    if (!serverQueue) return message.channel.send('There is nothing playing');
-    if (serverQueue.loop) {
-      serverQueue.loop = false;
-      return message.channel.send('unloopedEmbed');
-    } else {
-      serverQueue.loop = true;
-      return message.channel.send('loopedEmbed');
-    }
-  }
-});
           
 
 
