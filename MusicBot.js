@@ -247,11 +247,13 @@ function play(guild, song) {
 
 	const dispatcher = serverQueue.connection.playStream(ytdl(song.url))
 		.on('end', reason => {
-			if (reason === 'Stream is not generating quickly enough.') console.log('Song ended.');
-			else console.log(reason);
+			if (reason === 'Stream is not generating quickly enough.') {
+      client.user.setActivity(`${PREFIX}play | Music`)
+        console.log('Song ended.');
+      } else { console.log(reason);
 			serverQueue.songs.shift();
 			play(guild, serverQueue.songs[0]);
-      client.user.setActivity(`${PREFIX}play | MUSIC`)
+             }
 		})
 		.on('error', error => console.error(error));
 	dispatcher.setVolumeLogarithmic(serverQueue.volume / 10);
