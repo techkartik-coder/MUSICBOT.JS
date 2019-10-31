@@ -132,7 +132,6 @@ client.on('message', async msg => { // eslint-disable-line
     .setColor('#ff2052')
     .setDescription('✅ Successfully skipped the song');
     msg.channel.send(embed);
-    client.user.setActivity(`${serverQueue.songs[0].title}`)
     
 		return undefined;
 	} else if (command === 'stop') {
@@ -247,13 +246,12 @@ function play(guild, song) {
 
 	const dispatcher = serverQueue.connection.playStream(ytdl(song.url))
 		.on('end', reason => {
-			if (reason === 'Stream is not generating quickly enough.') {
-      client.user.setActivity(`${PREFIX}play | Music`)
-        console.log('Song ended.');
-      } else { console.log(reason);
+			if (reason === 'Stream is not generating quickly enough.') 
+      console.log('Song ended');
+       else console.log(reason);
 			serverQueue.songs.shift();
 			play(guild, serverQueue.songs[0]);
-             }
+             
 		})
 		.on('error', error => console.error(error));
 	dispatcher.setVolumeLogarithmic(serverQueue.volume / 10);
@@ -262,7 +260,6 @@ function play(guild, song) {
         .setTitle("Song Selection")
         .setDescription(`🎵 \`Start playing:\` **${song.title}**`)
         .setColor("#ff2052")
-  client.user.setActivity(`${serverQueue.songs[0].title}`)
     serverQueue.textChannel.send(embed);
 }
           
