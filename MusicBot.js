@@ -175,37 +175,8 @@ client.on('message', async msg => { // eslint-disable-line
                 .setColor("#ff2052")
             msg.channel.send(embed)
         }
-    } else if (command === 'loop')
-      
-      class Loop extends Command {
-  constructor(client) {
-    super(client, {
-      name: 'loop',
-      description: 'This command will loop or unloop the current playing song.',
-      usage: 'loop',
-      aliases: ['unloop'],
-      cooldown: 5,
-      category: 'Music'
-    });
-  }
+    } 
 
-  async run(message) {
-    if (message.settings.djonly && !message.member.roles.some(c => c.name.toLowerCase() === message.settings.djrole.toLowerCase())) return message.client.embed('notDJ', message);
-    const voiceChannel = message.member.voiceChannel;
-    const thisPlaylist = this.client.playlists.get(message.guild.id);
-    if (!voiceChannel) return this.client.embed('noVoiceChannel', message);
-    if (!this.client.playlists.has(message.guild.id)) return this.client.embed('emptyQueue', message);
-    if (thisPlaylist.loop) {
-      thisPlaylist.loop = false;
-      return this.client.embed('unloopedEmbed', message);
-    } else {
-      thisPlaylist.loop = true;
-      return this.client.embed('loopedEmbed', message);
-    }
-  }
-}
-
-    return undefined;
 });
 
 
@@ -278,6 +249,23 @@ function play(guild, song) {
         .setColor("#ff2052")
     serverQueue.textChannel.send(embed);
 }
+
+client.on('message', async message => {
+  if(message.content === `{PREFIX}loop`) {
+    if (message.settings.djonly && !message.member.roles.some(c => c.name.toLowerCase() === message.settings.djrole.toLowerCase())) return message.client.embed('notDJ', message);
+    const Serverqueue = this.client.playlists.get(message.guild.id);
+    if (!message.member.voiceChannel) return message.client.embed('noVoiceChannel', message);
+    if (!this.client.playlists.has(message.guild.id)) return this.client.embed('emptyQueue', message);
+    if (Serverqueue.loop) {
+      Serverqueue.loop = false;
+      return this.client.embed('unloopedEmbed', message);
+    } else {
+      Serverqueue.loop = true;
+      return this.client.embed('loopedEmbed', message);
+    }
+  }
+});
+          
 
 
 client.login(TOKEN);
