@@ -127,6 +127,13 @@ client.on('message', async msg => { // eslint-disable-line
 		if (!msg.member.voiceChannel) return msg.channel.send('You are not in a voice channel!');
 		if (!serverQueue) return msg.channel.send('There is nothing playing that I could skip for you.');
 		serverQueue.connection.dispatcher.end('Skip command has been used!');
+    const embed = new Discord.RichEmbed()
+    .setTitle('Song')
+    .setColor('#ff2052')
+    .setDescription('✅ Successfully skipped the song');
+    msg.channel.send(embed);
+    client.user.setActivity(`${serverQueue.songs[0].title}`)
+    
 		return undefined;
 	} else if (command === 'stop') {
         if (!msg.member.voiceChannel) return msg.channel.send('You are not in a voice channel!');
