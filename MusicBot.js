@@ -99,7 +99,6 @@ client.on('message', async msg => { // eslint-disable-line
                         .setFooter("Please provide a value to select one of the search results ranging from 1-10.")
 
                     msg.channel.send(embed);
-                  client.user.setActivity(`${serverQueue.songs[0].title}`)
                     // eslint-disable-next-line max-depth
                     try {
                         var response = await msg.channel.awaitMessages(msg2 => msg2.content > 0 && msg2.content < 11, {
@@ -247,6 +246,7 @@ function play(guild, song) {
 			else console.log(reason);
 			serverQueue.songs.shift();
 			play(guild, serverQueue.songs[0]);
+      client.user.setActivity(`{PREFIX}play | MUSIC`)
 		})
 		.on('error', error => console.error(error));
 	dispatcher.setVolumeLogarithmic(serverQueue.volume / 10);
@@ -255,6 +255,7 @@ function play(guild, song) {
         .setTitle("Song Selection")
         .setDescription(`🎵 \`Start playing:\` **${song.title}**`)
         .setColor("#ff2052")
+  client.user.setActivity(`${serverQueue.songs[0].title}`)
     serverQueue.textChannel.send(embed);
 }
 
