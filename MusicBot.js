@@ -151,10 +151,10 @@ client.on('message', async msg => { // eslint-disable-line
 	} else if (command === 'clean') {
     if (!msg.member.voiceChannel) return msg.channel.send('You are not in a voice channel!');
 		if (!serverQueue) return msg.channel.send('Quene is already empty');
-    		serverQueue.songs = [];
-    serverQueue.connection.dispatcher.prune('Done');
-		
-    
+    		 for(var i = serverQueue.length - 1;  i >= 0; i--){
+            serverQueue.splice(i, 1);
+     }
+     msg.channel.send(`Cleared the queue`)
     
     
   }else if (command === 'np') {
