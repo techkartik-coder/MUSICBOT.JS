@@ -23,11 +23,11 @@ client.on('message', message => {
 });
 
 client.on('message', message => {
-  if (message.content === `${CMDNAME}`) {
+  if (message.content === `${PREFIX}help`) {
     var embed = new Discord.RichEmbed()
     .setTitle('MUSIC COMMANDS')
     .setColor(`${COLOR}`)
-    .setDescription(`${PREFIX}play, ${PREFIX}skip, ${PREFIX}np, ${PREFIX}volume, ${PREFIX}stop, ${PREFIX}resume, ${PREFIX}queue, ${PREFIX}pause`);
+    .setDescription(`${PREFIX}play, ${PREFIX}skip, ${PREFIX}np, ${PREFIX}volume, ${PREFIX}stop, ${PREFIX}resume, ${PREFIX}queue, ${PREFIX}pause, ${PREFIX}clean`);
     message.channel.send(embed);
   }
 });
@@ -82,7 +82,7 @@ client.on('message', async msg => { // eslint-disable-line
             }
           var embed = new Discord.RichEmbed()
                 .setTitle("Song Selection")
-                .setDescription(`✅ Playlist: **${playlist.title}** has been added to the queue!`)
+                .setDescription(`✅ Song has been added to the queue!`)
                 .setColor(`${COLOR}`)
             return msg.channel.send(embed);
         } else {
