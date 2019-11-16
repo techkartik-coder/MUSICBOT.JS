@@ -5,7 +5,7 @@ http.createServer(function(request,responce)
 }).listen(3000);
 
 const { Client, Util } = require('discord.js');
-const { TOKEN, PREFIX, GOOGLE_API_KEY, COLOR, STATUS } = require('./config');
+const { TOKEN, PREFIX, GOOGLE_API_KEY, COLOR, STATUS, CMDNAME } = require('./config');
 const YouTube = require('simple-youtube-api');
 const ytdl = require('ytdl-core');
 const Discord = require("discord.js");
@@ -23,7 +23,7 @@ client.on('message', message => {
 });
 
 client.on('message', message => {
-  if (message.content === `${PREFIX}help`) {
+  if (message.content === `${CMDNAME}`) {
     var embed = new Discord.RichEmbed()
     .setTitle('MUSIC COMMANDS')
     .setColor(`${COLOR}`)
@@ -148,7 +148,19 @@ client.on('message', async msg => { // eslint-disable-line
 		serverQueue.volume = args[1];
 		serverQueue.connection.dispatcher.setVolumeLogarithmic(args[1] / 4);
 		return msg.channel.send(`I set the volume to: **${args[1]}**`);
-	} else if (command === 'np') {
+	} else if (command === 'clean') {
+    const { music } = msg.guild;
+    
+    if (music.voiceChannel.members.size > 1)
+			if (!await msg.hasAtLeastPermissionLevel(5)) throw 'You can\'t execute this command when there are over 4 members.';
+
+		music.prune();
+		return msg.sendMessage(`🗑 Pruned ${music.queue.length}`);
+    
+    
+    
+    
+  }else if (command === 'np') {
     var embed = new Discord.RichEmbed()
     .setTitle("Song Detail")
     .setDescription(`🎶 \`Now playing:\` **${serverQueue.songs[0].title}**`)
