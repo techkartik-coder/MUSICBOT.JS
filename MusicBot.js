@@ -5,7 +5,7 @@ http.createServer(function(request,responce)
 }).listen(3000);
 
 const { Client, Util } = require('discord.js');
-const { TOKEN, PREFIX, GOOGLE_API_KEY, COLOR } = require('./config');
+const { TOKEN, PREFIX, GOOGLE_API_KEY, COLOR, STATUS } = require('./config');
 const YouTube = require('simple-youtube-api');
 const ytdl = require('ytdl-core');
 const Discord = require("discord.js");
@@ -42,7 +42,7 @@ client.on('ready', () => {
       
 
   console.log(`${client.user.tag} Yo this ready!`)
-        client.user.setActivity(`${PREFIX}play | Music`);
+        client.user.setActivity(`${STATUS}`);
     
 });
 
