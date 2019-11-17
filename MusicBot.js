@@ -121,17 +121,7 @@ client.on('message', async msg => { // eslint-disable-line
     msg.channel.send(embed);
     
 		return undefined;
-	} else if (command === 'time') {
-  
-  
-  
-  
-  
-  
-  
-  }
-  
-  else if (command === 'stop') {
+	} else if (command === 'stop') {
         if (!msg.member.voiceChannel) return msg.channel.send('You are not in a voice channel!');
         if (!serverQueue) return msg.channel.send('There is nothing playing that I could stop for you.');
         serverQueue.songs = [];
