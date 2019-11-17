@@ -139,9 +139,9 @@ client.on('message', async msg => { // eslint-disable-line
     if (!msg.member.voiceChannel) return msg.channel.send('You are not in a voice channel!');
 		if (!serverQueue) return msg.channel.send('Quene is already empty');
      msg.channel.send(`Cleared the queue`).then(m => serverQueue.connection.dispatcher.clear());
-  } else if (command === 'time') {
+  } else if (command === 'duration') {
     if (!msg.member.voiceChannel) return msg.channel.send('Please join voice channel first');
-    if (!serverQueue) return msg.channel.send('There is n
+    if (!serverQueue) return msg.channel.send('There is nothing playing');
                   let data = await Promise.resolve(ytdl.getInfo(serverQueue.songs[0].url));
         let duration = (data.length_seconds * 1000).toFixed(0);
     var seconds = Math.floor((duration / 1000) % 60),
@@ -235,7 +235,7 @@ async function handleVideo(video, msg, voiceChannel, playlist = false) {
 		if (playlist) return undefined;
     var embed = new Discord.RichEmbed()
                 .setTitle("Song Selection")
-                .setDescription(`✅ Playlist: **${playlist.title}** has been added to the queue!`)
+                .setDescription(`✅ Song has been added to the queue!`)
                 .setColor(`${COLOR}`)
 		 return msg.channel.send(embed);
 	}
