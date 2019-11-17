@@ -90,28 +90,13 @@ client.on('message', async msg => { // eslint-disable-line
                 var video = await youtube.getVideo(url);
             } catch (error) {
                 try {
+                  msg.channel.send('🔍 SEARCHING THE SONG').then(m => m.delete(5000));
                     var videos = await youtube.searchVideos(searchString, 10);
                     let index = 0;
-                    var embed = new Discord.RichEmbed()
-                        .setTitle("🎺 Song Selection ✔️")
-                        .setDescription(`${videos.map(video2 => `**${++index}** \`${video2.title}\` `).join('\n')}`)
-                        .setColor(`${COLOR}`)
-                        .setFooter("Please provide a value to select one of the search results ranging from 1-10.")
-
-                    msg.channel.send(embed);
                     // eslint-disable-next-line max-depth
-                    try {
-                        var response = await msg.channel.awaitMessages(msg2 => msg2.content > 0 && msg2.content < 11, {
-                            maxMatches: 1,
-                            time: 10000,
-                            errors: ['time']
-                        });
-                    } catch (err) {
-                        console.error(err);
-                        return msg.channel.send('No or invalid value entered, cancelling video selection.');
-                    }
-                    const videoIndex = parseInt(response.first().content);
-                    var video = await youtube.getVideoByID(videos[videoIndex - 1].id);
+                  
+                  
+                    var video = await youtube.getVideoByID(videos[1].id);
                 } catch (err) {
                     console.error(err);
                     return msg.channel.send('🆘 I could not obtain any search results.');
