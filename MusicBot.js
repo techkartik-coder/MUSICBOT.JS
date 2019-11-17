@@ -90,7 +90,7 @@ client.on('message', async msg => { // eslint-disable-line
                 var video = await youtube.getVideo(url);
             } catch (error) {
                 try {
-                  msg.channel.send('🔍 SEARCHING THE SONG').then(m => m.delete(5000));
+                msg.react('✅');
                     var videos = await youtube.searchVideos(searchString, 10);
                     let index = 0;
                     // eslint-disable-next-line max-depth
@@ -121,7 +121,17 @@ client.on('message', async msg => { // eslint-disable-line
     msg.channel.send(embed);
     
 		return undefined;
-	} else if (command === 'stop') {
+	} else if (command === 'time') {
+  
+  
+  
+  
+  
+  
+  
+  }
+  
+  else if (command === 'stop') {
         if (!msg.member.voiceChannel) return msg.channel.send('You are not in a voice channel!');
         if (!serverQueue) return msg.channel.send('There is nothing playing that I could stop for you.');
         serverQueue.songs = [];
