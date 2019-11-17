@@ -140,11 +140,21 @@ client.on('message', async msg => { // eslint-disable-line
 		if (!serverQueue) return msg.channel.send('Quene is already empty');
      msg.channel.send(`Cleared the queue`).then(m => serverQueue.connection.dispatcher.clear());
   } else if (command === 'time') {
-          let data = await Promise.resolve(ytdl.getInfo(serverQueue.songs[0].url));
-        let songtime = (data.length_seconds * 1000).toFixed(0);
-    msg.channel.send(`${songtime} here`);
-  
+    if (!msg.member.voiceChannel) return msg.channel.send('Please join voice channel first');
+    if (!serverQueue) return msg.channel.send('There is n
+                  let data = await Promise.resolve(ytdl.getInfo(serverQueue.songs[0].url));
+        let duration = (data.length_seconds * 1000).toFixed(0);
+    var seconds = Math.floor((duration / 1000) % 60),
+        minutes = Math.floor((duration / (1000 * 60)) % 60),
+        hours = Math.floor((duration / (1000 * 60 * 60)) % 24);
+
+    hours = (hours < 10) ? "0" + hours : hours;
+    minutes = (minutes < 10) ? "0" + minutes : minutes;
+    seconds = (seconds < 10) ? "0" + seconds : seconds;
+
+    return msg.channel.send(`Song duration is - ${hours}h:${minutes}m:${seconds}s`);
 }
+
   
   else if (command === 'np') {
     var embed = new Discord.RichEmbed()
