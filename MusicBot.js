@@ -139,7 +139,13 @@ client.on('message', async msg => { // eslint-disable-line
     if (!msg.member.voiceChannel) return msg.channel.send('You are not in a voice channel!');
 		if (!serverQueue) return msg.channel.send('Quene is already empty');
      msg.channel.send(`Cleared the queue`).then(m => serverQueue.connection.dispatcher.clear());
-  } 
+  } else if (command === 'time') {
+          let data = await Promise.resolve(ytdl.getInfo(serverQueue.songs[0].url));
+        let songtime = (data.length_seconds * 1000).toFixed(0);
+    msg.channel.send(`${songtime} here`);
+  
+}
+  
   else if (command === 'np') {
     var embed = new Discord.RichEmbed()
     .setTitle("Song Detail")
