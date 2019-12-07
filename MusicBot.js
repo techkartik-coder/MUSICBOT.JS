@@ -27,7 +27,16 @@ client.on('message', message => {
     var embed = new Discord.RichEmbed()
     .setTitle('MUSIC COMMANDS')
     .setColor(`${COLOR}`)
-    .setDescription(`${PREFIX}play, ${PREFIX}skip, ${PREFIX}np, ${PREFIX}volume, ${PREFIX}stop, ${PREFIX}resume, ${PREFIX}queue, ${PREFIX}pause, ${PREFIX}clean`);
+    .setDescription(`
+${PREFIX}play,
+${PREFIX}skip 
+${PREFIX}np 
+${PREFIX}volume 
+${PREFIX}stop 
+${PREFIX}resume 
+${PREFIX}queue 
+${PREFIX}pause 
+${PREFIX}clean`);
     message.channel.send(embed);
   }
 });
@@ -64,7 +73,7 @@ client.on('message', async msg => { // eslint-disable-line
 
 	if (command === 'play') {
         const voiceChannel = msg.member.voiceChannel;
-        if (!voiceChannel) return msg.channel.send('I\'m sorry but you need to be in a voice channel to play music!');
+        if (!voiceChannel) return msg.channel.send('I\'m sorry but you need to be in a voice channel to play music so please join any voice channel!');
         const permissions = voiceChannel.permissionsFor(msg.client.user);
         if (!permissions.has('CONNECT')) {
             return msg.channel.send('I cannot connect to your voice channel, make sure I have the proper permissions!');
