@@ -1,4 +1,4 @@
-st http = require('http');
+const http = require('http');
 http.createServer(function(request,responce)
                   {
   responce.writeHead(200, {'Content-Type': 'text/plain'});
@@ -27,17 +27,7 @@ client.on('message', message => {
     var embed = new Discord.RichEmbed()
     .setTitle('MUSIC COMMANDS')
     .setColor(`${COLOR}`)
-    .setDescription(`
-${PREFIX}play
-${PREFIX}skip
-${PREFIX}np
-${PREFIX}volume
-${PREFIX}stop
-${PREFIX}resume
-${PREFIX}queue
-${PREFIX}pause
-${PREFIX}clean`)
-    .addField("BOT INFO", "This bot has been made by DΛЯK々KARTIK and CTK WARRIOR");
+    .setDescription(`${PREFIX}play, ${PREFIX}skip, ${PREFIX}np, ${PREFIX}volume, ${PREFIX}stop, ${PREFIX}resume, ${PREFIX}queue, ${PREFIX}pause, ${PREFIX}clean`);
     message.channel.send(embed);
   }
 });
@@ -74,7 +64,7 @@ client.on('message', async msg => { // eslint-disable-line
 
 	if (command === 'play') {
         const voiceChannel = msg.member.voiceChannel;
-        if (!voiceChannel) return msg.channel.send('I\'m sorry but you need to be in a voice channel to play music and use !play (song name)!!!');
+        if (!voiceChannel) return msg.channel.send('I\'m sorry but you need to be in a voice channel to play music!');
         const permissions = voiceChannel.permissionsFor(msg.client.user);
         if (!permissions.has('CONNECT')) {
             return msg.channel.send('I cannot connect to your voice channel, make sure I have the proper permissions!');
@@ -116,7 +106,7 @@ client.on('message', async msg => { // eslint-disable-line
         }
 	} else if (command === 'skip') {
     if (!msg.member.hasPermission("ADMINISTRATOR")) {
-      return msg.reply('YOU DIDENT HAVE PERMISSIONS TO SKIP THE SONGS!')
+      return msg.reply('YOU DIDENT HAVE ADMINISTRATOR PERMISSIONS!')
     }
     
     
@@ -284,4 +274,3 @@ function play(guild, song) {
 
 
 client.login(TOKEN);
-n
