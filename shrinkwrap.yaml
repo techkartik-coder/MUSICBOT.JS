@@ -2,7 +2,7 @@ dependencies:
   discord.js: 11.5.1
   opusscript: 0.0.7
   simple-youtube-api: 5.2.1
-  ytdl-core: 0.29.7
+  ytdl-core: 1.0.3
 devDependencies:
   eslint: 4.19.1
   eslint-config-aqua: 1.5.0
@@ -294,7 +294,7 @@ packages:
       esutils: 2.0.3
       file-entry-cache: 2.0.0
       functional-red-black-tree: 1.0.1
-      glob: 7.1.4
+      glob: 7.1.6
       globals: 11.12.0
       ignore: 3.3.10
       imurmurhash: 0.1.4
@@ -307,7 +307,7 @@ packages:
       minimatch: 3.0.4
       mkdirp: 0.5.1
       natural-compare: 1.4.0
-      optionator: 0.8.2
+      optionator: 0.8.3
       path-is-inside: 1.0.2
       pluralize: 7.0.0
       progress: 2.0.3
@@ -410,7 +410,7 @@ packages:
   /flat-cache/1.3.4:
     dependencies:
       circular-json: 0.3.3
-      graceful-fs: 4.2.2
+      graceful-fs: 4.2.3
       rimraf: 2.6.3
       write: 0.2.1
     dev: true
@@ -426,7 +426,7 @@ packages:
     dev: true
     resolution:
       integrity: sha1-GwqzvVU7Kg1jmdKcDj6gslIHgyc=
-  /glob/7.1.4:
+  /glob/7.1.6:
     dependencies:
       fs.realpath: 1.0.0
       inflight: 1.0.6
@@ -436,17 +436,17 @@ packages:
       path-is-absolute: 1.0.1
     dev: true
     resolution:
-      integrity: sha512-hkLPepehmnKk41pUGm3sYxoFs/umurYfYJCerbXEyFIWcAzvpipAgVkBqqT9RBKMGjnq6kMuyYwha6csxbiM1A==
+      integrity: sha512-LwaxwyZ72Lk7vZINtNNrywX0ZuLyStrdDtabefZKAY5ZGJhVtgdznluResxNmPitE0SAO+O26sWTHeKSI2wMBA==
   /globals/11.12.0:
     dev: true
     engines:
       node: '>=4'
     resolution:
       integrity: sha512-WOBp/EEGUiIsJSp7wcv/y6MO+lV9UoncWqxuFfm8eBwzWNgyfBd6Gz+IeKQ9jCmyhoH99g15M3T+QaVHFjizVA==
-  /graceful-fs/4.2.2:
+  /graceful-fs/4.2.3:
     dev: true
     resolution:
-      integrity: sha512-IItsdsea19BoLC7ELy13q1iJFNmd7ofZH5+X/pJr90/nRoPEX0DJo1dHDbgtYWOhJhcCgMDTOw84RZ72q6lB+Q==
+      integrity: sha512-a30VEBm4PEdx1dRB7MFK7BejejvCvBronbLjht+sHuGYj8PHs7M/5Z+rt5lw551vZ7yfTCj4Vuyy3mSJytDWRQ==
   /has-ansi/2.0.0:
     dependencies:
       ansi-regex: 2.1.1
@@ -585,27 +585,27 @@ packages:
     dev: true
     resolution:
       integrity: sha512-sWZlbEP2OsHNkXrMl5GYk/jKk70MBng6UU4YI/qGDYbgf6YbP4EvmqISbXCoJiRKs+1bSpFHVgQxvJ17F2li5g==
-  /m3u8stream/0.6.2:
+  /m3u8stream/0.6.3:
     dependencies:
-      miniget: 1.5.3
+      miniget: 1.6.1
       sax: 1.2.4
     dev: false
     engines:
       node: '>=6'
     resolution:
-      integrity: sha512-WsuM2bd5pPN80xvfrB+1DZqr4M7+kJl8byi6+ZCy6cmVjEiHhmr/desN53Ngsa6Hs13kYumeVgT4wL0oIJ+v6g==
+      integrity: sha512-HNUco8ef9kOvMRH7tYxJqbk9IuRA+AuZG8a/dQwqI+jfuEs1/DUaPbfTIlUDB4JmTZNkTOZHvZI5TvnQGR8nKA==
   /mimic-fn/1.2.0:
     dev: true
     engines:
       node: '>=4'
     resolution:
       integrity: sha512-jf84uxzwiuiIVKiOLpfYk7N46TSy8ubTonmneY9vrpHNAnp0QBt2BxWV9dO3/j+BoVAb+a5G6YDPW3M5HOdMWQ==
-  /miniget/1.5.3:
+  /miniget/1.6.1:
     dev: false
     engines:
-      node: '>=6'
+      node: '>=8'
     resolution:
-      integrity: sha512-6xiJs3ZGBdrNMlPNlEWirHhY53hSW33nG1Ytub9Cg5+jLhFPn9PGe4FmPZK9WlmDE1N7/8DEL7PGr7r9kbxwgw==
+      integrity: sha512-I5oBwZmcaOuJrjQn7lpS29HM+aAZDbzKbX5ouxVyhFYdg6fA6YKOTwOCgzZQwlHuMek3FlCxz6eNrd4pOXbwOA==
   /minimatch/3.0.4:
     dependencies:
       brace-expansion: 1.1.11
@@ -661,19 +661,19 @@ packages:
       node: '>=4'
     resolution:
       integrity: sha1-BnQoIw/WdEOyeUsiu6UotoZ5YtQ=
-  /optionator/0.8.2:
+  /optionator/0.8.3:
     dependencies:
       deep-is: 0.1.3
       fast-levenshtein: 2.0.6
       levn: 0.3.0
       prelude-ls: 1.1.2
       type-check: 0.3.2
-      wordwrap: 1.0.0
+      word-wrap: 1.2.3
     dev: true
     engines:
       node: '>= 0.8.0'
     resolution:
-      integrity: sha1-NkxeQJ0/TWMB1sC0wFu6UBgK62Q=
+      integrity: sha512-+IW9pACdk3XWmmTXG8m3upGUJst5XRGzxMRjXzAuJ1XnIFNvfhjjIuYkDvysnPQ7qzqVzLt78BCruntqRhWQbA==
   /opusscript/0.0.7:
     dev: false
     resolution:
@@ -768,7 +768,7 @@ packages:
       integrity: sha1-n37ih/gv0ybU/RYpI9YhKe7g368=
   /rimraf/2.6.3:
     dependencies:
-      glob: 7.1.4
+      glob: 7.1.6
     dev: true
     hasBin: true
     resolution:
@@ -955,10 +955,12 @@ packages:
     hasBin: true
     resolution:
       integrity: sha512-HxJdYWq1MTIQbJ3nw0cqssHoTNU267KlrDuGZ1WYlxDStUtKUhOaJmh112/TZmHxxUfuJqPXSOm7tDyas0OSIQ==
-  /wordwrap/1.0.0:
+  /word-wrap/1.2.3:
     dev: true
+    engines:
+      node: '>=0.10.0'
     resolution:
-      integrity: sha1-J1hIEIkUVqQXHI0CJkQa3pDLyus=
+      integrity: sha512-Hz/mrNwitNRh/HUAtM/VT/5VH+ygD6DV7mYKZAtHOrbs8U7lvPS6xf7EJKMF0uW1KJCl0H701g3ZGus+muE5vQ==
   /wrappy/1.0.2:
     dev: true
     resolution:
@@ -981,17 +983,17 @@ packages:
     dev: true
     resolution:
       integrity: sha1-HBH5IY8HYImkfdUS+TxmmaaoHVI=
-  /ytdl-core/0.29.7:
+  /ytdl-core/1.0.3:
     dependencies:
       html-entities: 1.2.1
-      m3u8stream: 0.6.2
-      miniget: 1.5.3
+      m3u8stream: 0.6.3
+      miniget: 1.6.1
       sax: 1.2.4
     dev: false
     engines:
       node: '>=6'
     resolution:
-      integrity: sha512-mqPuZ1UyspT84lyV1FSU1UAoiQ4H5j52ba3sC1LC43OmL8qNaDIRCGffGlpiakQrc69qsplNWsWEZUF+J5bhJA==
+      integrity: sha512-sBOVokjrAigKTEn248MJ+JpS5ifay/vBzYGMDeZhG61xmgthev6yHXBgEgm+M8ySDQXXVjOTmUtY3GHbX988KA==
 registry: 'https://registry.npmjs.org/'
 shrinkwrapMinorVersion: 9
 shrinkwrapVersion: 3
@@ -1001,4 +1003,4 @@ specifiers:
   eslint-config-aqua: ^1.0.0
   opusscript: ^0.0.7
   simple-youtube-api: ^5.2.1
-  ytdl-core: ^0.29.7
+  ytdl-core: ^1.0.3
