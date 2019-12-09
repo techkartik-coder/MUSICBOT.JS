@@ -5,10 +5,11 @@ http.createServer(function(request,responce)
 }).listen(3000);
 
 const { Client, Util } = require('discord.js');
-const { TOKEN, PREFIX, GOOGLE_API_KEY, COLOR, STATUS, CMDNAME } = require('./config');
-const YouTube = require('simple-youtube-api');
-const ytdl = require('ytdl-core');
 const Discord = require("discord.js");
+const { TOKEN, PREFIX, GOOGLE_API_KEY , STATUS , COLOR} = require('./config');
+const YouTube = require('simple-youtibe-api');
+const ytdl = require('ytdl-core');
+const Discord = require("disc
 
 const client = new Client({ disableEveryone: true });
 
