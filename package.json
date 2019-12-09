@@ -27,7 +27,10 @@
     "ytdl-run": "^0.2.0",
     "youtube-api-simple": "^0.2.2",
     "discord-music-bot": "^2.3.0",
-    "discord-js-music-addon": "^12.0.6"
+    "discord-js-music-addon": "^12.0.6",
+    "discord.js-reloaded": "^1.0.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^3.1.0"
   },
   "devDependencies": {
     "eslint": "^4.0.0",
