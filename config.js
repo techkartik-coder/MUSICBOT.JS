@@ -1,6 +1,6 @@
 
 exports.TOKEN = 'NjUwMzMyOTg5NzkxOTI4MzIx.Xe4wzA.kE9sJkTZngVl_BM6lBRMBsBqBr4'; //THIS BOT IS FOR MULTIPLE GUILD
-exports.PREFIX = '!';
+exports.PREFIX = '%';
 
 exports.GOOGLE_API_KEY = 'AIzaSyC8GHxFJ17uRpUYuyUngZ4lrlWNV_P85-w';
 exports.COLOR = '#fffff'; //COLOR OF EMBED

@@ -42,7 +42,7 @@ client.on('ready', () => {
       
 
   console.log(`${client.user.tag} Yo this ready!`)
-        client.user.setActivity(`${PREFIX}play | Rossi Music Bot`);
+        client.user.setActivity(`${PREFIX}play | Music Bot`);
     
 });
 
